@@ -14,45 +14,48 @@ import java.util.List;
 public class UserController {
     @Autowired
     private UserService userService;
+
     @GetMapping("/allUsers")
-    public ResponseEntity<List<Users>> getAllUsers(){
+    public ResponseEntity<List<Users>> getAllUsers() {
         List<Users> users = null;
-        try{
-            users=userService.getAllUsers();
-        }catch (Exception ex){
+        try {
+            users = userService.getAllUsers();
+        } catch (Exception ex) {
             ex.getMessage();
         }
-        return new ResponseEntity<List<Users>>(users,HttpStatus.OK);
+        return new ResponseEntity<List<Users>>(users, HttpStatus.OK);
     }
+
     @GetMapping("/getById/{id}")
-    public ResponseEntity <Users> getUserById(@PathVariable("id")int Id ){
+    public ResponseEntity<Users> getUserById(@PathVariable("id") int Id) {
         Users users = null;
-        try{
+        try {
             users = userService.getUserById(Id);
-        }catch (Exception ex){
+        } catch (Exception ex) {
             ex.getMessage();
         }
-        return new ResponseEntity<Users>(users,HttpStatus.OK);
+        return new ResponseEntity<Users>(users, HttpStatus.OK);
     }
 
     @RequestMapping("/addOrUpdate")
-    public ResponseEntity<Users> addOrUpdateUser(@RequestBody Users user){
+    public ResponseEntity<Users> addOrUpdateUser(@RequestBody Users user) {
         Users users = null;
-        try{
+        try {
             users = userService.addOrUpdateUser(user);
-        }catch (Exception ex){
+        } catch (Exception ex) {
             ex.getMessage();
         }
-        return new ResponseEntity<Users>(users,HttpStatus.OK);
+        return new ResponseEntity<Users>(users, HttpStatus.OK);
     }
+
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Users> addOrUpdateUser(@PathVariable("id") int Id){
+    public ResponseEntity<Users> addOrUpdateUser(@PathVariable("id") int Id) {
         Users users = null;
-        try{
+        try {
             users = userService.deleteUser(Id);
-        }catch (Exception ex){
+        } catch (Exception ex) {
             ex.getMessage();
         }
-        return new ResponseEntity<Users>(users,HttpStatus.OK);
+        return new ResponseEntity<Users>(users, HttpStatus.OK);
     }
 }
