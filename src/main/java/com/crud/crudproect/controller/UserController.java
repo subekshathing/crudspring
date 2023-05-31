@@ -45,6 +45,7 @@ public class UserController {
         }
         return new ResponseEntity<Users>(users,HttpStatus.OK);
     }
+    /*main */
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Users> addOrUpdateUser(@PathVariable("id") int Id){
         Users users = null;
