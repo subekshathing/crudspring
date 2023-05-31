@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 /*hii    hello*/
+
+/*change*/
 @RestController
 @RequestMapping("/users")
 public class UserController {
@@ -36,7 +38,7 @@ public class UserController {
         }
         return new ResponseEntity<Users>(users, HttpStatus.OK);
     }
-
+/*merge*/
     @RequestMapping("/addOrUpdate")
     public ResponseEntity<Users> addOrUpdateUser(@RequestBody Users user) {
         Users users = null;
